@@ -1,0 +1,302 @@
+/* ==============================
+         7) COURT (600×450)
+         ============================== */
+         .court {
+          position: relative;
+          width: var(--court-width);
+          height: var(--court-height);
+          background-color: var(--court-color1, white);
+          border: 2px solid var(--main-dark-color);
+          overflow: hidden;
+          border-radius: 5px;
+        }
+        
+        /* Court columns */
+        #court-left,
+        #court-middle,
+        #court-right {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          width: 33.3333%;
+        }
+        #court-left {
+          left: 0;
+          border-right: 1px dashed var(--main-dark-color);
+        }
+        #court-middle {
+          left: 33.3333%;
+          border-right: 1px dashed var(--main-dark-color);
+        }
+        #court-right {
+          right: 0;
+        }
+        
+        /* ==============================
+           8) 9-METER
+           ============================== */
+        .nine-meter {
+          position: absolute;
+          top: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 112.5%;
+          height: 60%;
+          background-color: var(--court-color1, white);
+          border-radius: 0 0 150px 150px;
+          border: 2px dashed var(--main-dark-color);
+          border-top: 0;
+        }
+        #nine-meter-left {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          width: 35.185%;
+          left: 0;
+          border-right: 1px dashed var(--main-dark-color);
+          border-radius: 0 0 0 150px;
+        }
+        #nine-meter-middle {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          width: 29.629%;
+          left: 35.185%;
+          border-right: 1px dashed var(--main-dark-color);
+        }
+        #nine-meter-right {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          width: 35.185%;
+          right: 0;
+          border-radius: 0 0 150px 0;
+        }
+        
+        /* ==============================
+           9) 6-METER
+           ============================== */
+        .six-meter {
+          position: absolute;
+          top: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 75%;
+          height: 40%;
+          background-color: var(--court-color2, white);
+          border-radius: 0 0 100px 100px;
+          border: 1px solid var(--main-dark-color);
+          border-top: 0;
+        }
+        #six-meter-left {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          width: 27.773%;
+          left: 0;
+          border-right: 1px dashed var(--main-dark-color);
+          border-radius: 0 0 0 100px;
+        }
+        #six-meter-middle {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          width: 44.454%;
+          left: 27.773%;
+          border-right: 1px dashed var(--main-dark-color);
+        }
+        #six-meter-right {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          width: 27.773%;
+          right: 0;
+          border-radius: 0 0 100px 0;
+        }
+        
+        /* ==============================
+           10) GOAL
+           ============================== */
+        .goal {
+          position: absolute;
+          top: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 15%;
+          height: 5px;
+          background-color: var(--main-dark-color);
+          border-radius: 0 0 5px 5px;
+        }
+        
+        /* ==============================
+           11) ZONE STATS (TEXT POSITIONS)
+           ============================== */
+        /* Common styles for all stat labels */
+        .cl-stat, .cm-stat, .cr-stat,
+        .nl-stat, .nm-stat, .nr-stat,
+        .sl-stat, .sm-stat, .sr-stat {
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          color: var(--main-dark-color);
+          font-weight: bold;
+          background: rgba(255,255,255,0.5);
+          padding: 2px 4px;
+          border-radius: 4px;
+        }
+
+        /* Specific bottom positions for columns in the court */
+        .cl-stat,
+        .cm-stat,
+        .cr-stat {
+          bottom: 15%;
+        }
+
+        .nl-stat,
+        .nm-stat,
+        .nr-stat {
+          bottom: 25%;
+        }
+
+        /* Override for nm-stat */
+        .nm-stat {
+          bottom: 10%;
+        }
+
+        /* For the small zone labels */
+        .sl-stat,
+        .sm-stat,
+        .sr-stat {
+          bottom: 25%;
+        }
+
+        /* Override for sl-stat and sr-stat */
+        .sl-stat,
+        .sr-stat {
+          bottom: 45%;
+        }
+        
+        /* ==============================
+           12) STATS GRID
+           ============================== */
+        .stats-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+          grid-template-rows: auto auto auto;
+          gap: 10px;
+          margin-top: 20px;
+          width: var(--court-width);
+        }
+        
+        /* ==============================
+           13) SHOT & KEEPER BUTTONS
+           ============================== */
+        .keeper-btn {
+          background: var(--main-white-color);
+          color: var(--main-dark-color);
+          border: none;
+          padding: 8px 12px;
+          border-radius: 4px;
+          cursor: pointer;
+          font-weight: bold;
+          transition: background-color 0.2s ease;
+        }
+
+        .keeper-btn:hover {
+          background-color: var(--main-mid-color);
+          border: 1px solid var(--main-dark-color);
+        }
+        .stats-grid p {
+          color: var(--main-dark-color);
+          margin: 5px 0;
+        }
+
+        
+        
+        /* ==============================
+           14) ZONE HOVER
+           ============================== */
+        .zone {
+          cursor: pointer;
+          transition: background-color 0.5s;
+        }
+        .zone:hover {
+          outline: 3px dashed var(--main-dark-color);
+        }
+        
+        /* ==============================
+           15) SHOT BUTTONS & KEEPER SECTION
+           ============================== */
+        .shot-buttons {
+          display: flex;
+          gap: 10px;
+          margin-bottom: 20px;
+        }
+        .shot-btn {
+          background: var(--main-white-color);
+          color: var(--main-dark-color);
+          border: none;
+          padding: 8px 12px;
+          border-radius: 4px;
+          cursor: pointer;
+          font-weight: bold;
+          font-size: 1.1rem;
+          transition: background 0.3s;
+        }
+
+        .shot-btn:hover{
+          background-color: var(--main-mid-color);
+          border: 1px solid var(--main-dark-color);
+        }
+
+        .keeper-section {
+          display: flex;
+          gap: 10px;
+          margin-bottom: 20px;
+        }
+        .keeper-btn {
+          padding: 8px 12px;
+          font-size: 1rem;
+          cursor: pointer;
+        }
+        
+        /* Ratio Text */
+        .ratio-text {
+          font-size: 1.5rem;
+        }
+        .ratio-text-info {
+          font-size: 0.8rem;
+        }
+        
+        .dot-container {
+          display: inline-flex;
+          align-items: center;
+          margin-left: 6px;
+        }
+        
+        .shot-dot {
+          width: 12px;
+          height: 12px;
+          border-radius: 5px;
+          margin-right: 4px;
+        }
+        
+        .saved-dot {
+          background-color: var(--main-mid-color);
+        }
+        .conceded-dot {
+          background-color: var(--main-mid-red-color);
+        }
+        .empty-dot {
+          background-color: var(--main-light-color);
+        }
+        
+        /* ==============================
+           16) ACTIVE HIGHLIGHT
+           ============================== */
+        .active {
+          border: none;
+          background-color: var(--main-mid-color) !important;
+          transition: background-color 0.2s;
+        }
+        

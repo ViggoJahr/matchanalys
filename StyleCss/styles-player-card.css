@@ -1,0 +1,154 @@
+/* ==============================
+   PLAYER CONTAINER & SPELARKORT
+   ============================== */
+   .player-container {
+    width: 50%;
+    background-color: var(--main-light-color);
+    overflow: auto;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    min-height: 60vh; /* minst 3 kort syns */
+  }
+  
+  .player-card {
+    background: var(--main-white-color);
+    border: 2px solid var(--main-light-color);
+    border-radius: 8px;
+    padding: 8px;
+    width: 120px;
+    max-width: 150px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s, border-color 0.2s, background-color 0.2s;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .player-card:hover {
+    transform: scale(1.03);
+  }
+  
+  .player-card.selected {
+    background: var(--main-mid-color);
+    border: 2px solid var(--main-light-color);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  }
+  
+  .player-card h3 {
+    text-align: center;
+    font-size: 1em;
+    margin-bottom: 8px;
+  }
+  
+  .score-badge {
+    display: inline-block;
+    background: var(--main-dark-color);
+    color: var(--main-white-color);
+    padding: 2px 6px;
+    border-radius: 12px;
+    font-size: 0.8em;
+    margin-left: 5px;
+  }
+  
+  .stat {
+    font-size: 0.8em;
+    margin-bottom: 4px;
+  }
+  
+  /* Separation mellan statrader */
+  .player-card .stat:not(:last-child) {
+    border-bottom: 1px solid var(--main-mid-color);
+    padding-bottom: 4px;
+    margin-bottom: 4px;
+  }
+  
+  .stat .stat-text {
+    text-align: left;
+  }
+  
+  /* ==============================
+     POINT-SYSTEM BOARD KNAPPAR
+     ============================== */
+  .point-system-board {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 240px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow-y: auto;
+    cursor: move;
+    max-height: 410px;  
+  }
+  
+  /* När pinned – läggs den i player-container och skjuts längst till höger */
+  .point-system-board.pinned {
+    position: static;
+    margin-left: auto;
+    cursor: default;
+  }
+  
+  .point-btn-text {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1em;
+    padding: 5px 0;
+  }
+  
+  .point-btn-text span {
+    flex: 1;
+  }
+  
+  .point-btn-text button {
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin: 0 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    min-width: 45px;
+    min-height: 45px;
+  }
+
+  /* 1. Ändra färg på + och - knappar */
+.point-btn-text button.add {
+  background-color: var(--main-mid-color); /* Grön */
+}
+.point-btn-text button.sub {
+  background-color: var(--main-mid-red-color);
+}
+.point-btn-text button.add:hover {
+  background-color: var(--main-dark-color);
+}
+.point-btn-text button.sub:hover {
+  background-color: var(--main-dark-red-color);
+}
+
+/* 2. Justera statetiketterna: separera text och siffra med flex */
+.stat .stat-text {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* 2a. Sätt max-höjd för spelarkorten */
+.player-card {
+  max-height: 250px;
+  overflow: hidden;
+}
+
+/* 3. När scoreboarden är pinned, se till att den ligger längst till höger och tar upp en fast bredd */
+.point-system-board.pinned {
+  position: static;
+  width: 240px;
+  margin-left: auto;
+}

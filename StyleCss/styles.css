@@ -1,0 +1,100 @@
+/* ==============================
+   1) RESET & GLOBAL STYLES
+   ============================== */
+   * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    --court-color1:#A7C7E7;
+    --court-color2:#4682B4;
+
+    --court-width: 600px;
+    --court-height: calc(var(--court-width) * 0.75);
+
+    --main-white-color: #f1f1f1;
+    --main-light-color: #C3CBD6;
+    --main-mid-color: #748B6F;
+    --main-dark-color: #2A403D;
+    --main-mid-red-color: #D05663;
+    --main-dark-red-color: #a6444f;
+
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background: var(--main-light-color);
+    color: var(--main-dark-color);
+  }
+  
+  /* ==============================
+     2) TASK BOARD + BODY
+     ============================== */
+  .task-board {
+    background: linear-gradient(135deg, var(--main-mid-color), var(--main-dark-color));
+    color: var(--main-dark-color);
+    font-weight: bold;
+    font-size: large;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .task-board button {
+    background: var(--main-white-color);
+    color: var(--main-dark-color);
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+    margin-left: 25px;
+  }
+  
+  .task-board button:hover {
+    background: var(--main-light-color);
+  }
+  
+  /* ==============================
+     3) MAIN CONTAINER
+     ============================== */
+  .main {
+    position: relative; /* Viktigt för att absolut positionerade element ska placeras i main */
+    display: flex;
+    flex-direction: row;
+    height: calc(100vh - 60px);
+    width: 100%;
+  }
+  
+  /* ==============================
+     5) DEFENSE CONTAINER
+     ============================== */
+  .defense-container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--main-light-color);
+    overflow: auto;
+    padding: 20px;
+  }
+  
+  /* ==============================
+     6) SLIDER
+     ============================== */
+  .slider {
+    width: 5px;
+    background: var(--main-mid-color);
+    cursor: col-resize;
+    position: relative;
+    z-index: 100;
+  }
+  
+  .slider:hover {
+    background: var(--main-dark-color);
+    opacity: 0.8;
+    transition: background 0.8s, opacity 0.2s;
+  }
+  

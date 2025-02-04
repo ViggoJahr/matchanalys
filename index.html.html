@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Handballcourt</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Övergripande stilar -->
+  <link rel="stylesheet" href="StyleCss/styles.css">
+  <!-- Stilar för spelarkort och point-board -->
+  <link rel="stylesheet" href="StyleCss/styles-player-card.css">
+  <!-- Stilar för plan/zone -->
+  <link rel="stylesheet" href="StyleCss/styles-court.css">
+</head>
+<body>
+  <div class="task-board">
+    <div>Task Board</div>
+    <span class="task-icons">
+      <button id="add-players-btn">Add Players</button>
+      <button id="add-keeper-btn">Add Keeper</button>
+      <button id="toggle-scoreboard-btn">Pin Scoreboard</button>
+    </span>
+  </div>
+  
+  <div class="main">
+    <div class="player-container" id="player-container">
+      
+      <!-- Point-System Board – initialt pinned (ligger i player-container) -->
+      <div class="point-system-board pinned" id="point-system-board">
+        <div class="point-btn-text">
+          <span>Mål</span>
+          <button data-type="goal" class="add">+</button>
+          <button data-type="goal" class="sub">–</button>
+        </div>
+        <div class="point-btn-text">
+          <span>Assist</span>
+          <button data-type="assist" class="add">+</button>
+          <button data-type="assist" class="sub">–</button>
+        </div>
+        <div class="point-btn-text">
+          <span>Missat skott</span>
+          <button data-type="missed-shot" class="add">+</button>
+          <button data-type="missed-shot" class="sub">–</button>
+        </div>
+        <div class="point-btn-text">
+          <span>Tekniska fel</span>
+          <button data-type="teknisk" class="add">+</button>
+          <button data-type="teknisk" class="sub">–</button>
+        </div>
+        <div class="point-btn-text">
+          <span>Steals</span>
+          <button data-type="steal" class="add">+</button>
+          <button data-type="steal" class="sub">–</button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Slider -->
+    <div class="slider" id="slider"></div>
+    
+    <div class="defense-container">
+      <div class="court">
+        <div id="court-left" class="zone"><p class="cl-stat">0/0</p></div>
+        <div id="court-middle" class="zone"><p class="cm-stat">0/0</p></div>
+        <div id="court-right" class="zone"><p class="cr-stat">0/0</p></div>
+
+        <div class="nine-meter">
+          <div id="nine-meter-left" class="zone"><p class="nl-stat">0/0</p></div>
+          <div id="nine-meter-middle" class="zone"><p class="nm-stat">0/0</p></div>
+          <div id="nine-meter-right" class="zone"><p class="nr-stat">0/0</p></div>
+        </div>
+
+        <div class="six-meter">
+          <div id="six-meter-left" class="zone"><p class="sl-stat">0/0</p></div>
+          <div id="six-meter-middle" class="zone"><p class="sm-stat">0/0</p></div>
+          <div id="six-meter-right" class="zone"><p class="sr-stat">0/0</p></div>
+        </div>
+
+        <div class="goal"></div>
+      </div>
+      
+      <div class="stats-grid">
+        <button class="shot-btn" data-shot="Mål" style="grid-row:1; grid-column:1;">Mål</button>
+        <button class="shot-btn" data-shot="Missat" style="grid-row:1; grid-column:2;">Missat skott</button>
+        <button class="shot-btn" data-shot="Räddning" style="grid-row:1; grid-column:3;">Räddning</button>
+        
+        <button class="keeper-btn" id="keeper1" style="grid-row:2; grid-column:1;">Målvakt 1</button>
+        <p id="keeper1-totals" style="grid-row:2; grid-column:2;">0% totalt</p>
+        <p id="keeper1-last10" style="grid-row:2; grid-column:3;">0% senaste 10 skotten</p>
+        
+        <button class="keeper-btn" id="keeper2" style="grid-row:3; grid-column:1;">Målvakt 2</button>
+        <p id="keeper2-totals" style="grid-row:3; grid-column:2;">0% totalt</p>
+        <p id="keeper2-last10" style="grid-row:3; grid-column:3;">0% senaste 10 skotten</p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- JavaScript-filer -->
+  <script src="javascript/slider.js"></script>
+  <script src="javascript/player.js"></script>
+  <script src="javascript/defense.js"></script>
+</body>
+</html>
